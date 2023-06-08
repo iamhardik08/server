@@ -6,7 +6,7 @@ function validateAccessToken(req, res, next) {
     res.status(401).json({ Msg: "Token not found" });
   }
   try {
-    const decoded = jwt.verify(token, "SECRET-KEY");
+    const decoded = jwt.verify(token, process.env.VALIDATION_KEY);
     req.userId = decoded.userId;
     next();
   } catch (error) {

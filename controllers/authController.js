@@ -39,7 +39,7 @@ async function login(req, res) {
         .status(401)
         .json({ Msg: "Authentication failed! Incorrect password" });
     }
-    const token = jwt.sign({ userId: user.id }, "SECRET-KEY", {
+    const token = jwt.sign({ userId: user.id }, process.env.VALIDATION_KEY, {
       expiresIn: "1h",
     });
 
