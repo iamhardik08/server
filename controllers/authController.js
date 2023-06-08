@@ -18,7 +18,7 @@ async function register(req, res) {
     });
     res.json({ Msg: "Registered successfully" });
   } catch (error) {
-    if (error.parent.code == "23505") {
+    if (error?.parent?.code == "23505") {
       res.status(404).json({ Msg: "Email already exists" });
     }
     console.log(error);
