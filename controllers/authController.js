@@ -43,7 +43,7 @@ async function login(req, res) {
       expiresIn: "1h",
     });
 
-    res.json({ token });
+    res.json({ token, id: user.id, email: user.email });
     // res.json({user, passwordMatch});
   } catch (error) {
     console.log(error);
