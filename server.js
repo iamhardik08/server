@@ -15,6 +15,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(cors());
 
+// 27 July : Added for testing API on cloud
+app.get('/testAPI', (req, res) => {
+    res.send("API Running Successfully!");
+});
+
 // auth routes 
 const authRoutes = require('./routes/authRoutes');
 app.use('/auth', authRoutes);
